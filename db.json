@@ -88,10 +88,6 @@
             "likes": [],
             "followers": []
         }
-
-
-
-
     ],
     "videos": [
         {
@@ -134,10 +130,53 @@
     "books": [
         {
             "id": 1,
-            "title": "Clean architecture",
-            "author": "Uncle Bob",
+            "book_pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGDULhOY_Xw1fSzhcxycR2hn5ifI07df0N9w&usqp=CAU",
+            "title": "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
+            "author": "Robert C. Martin (“Uncle Bob”)",
             "book_description": "Clean architecture is a software design philosophy that separates the elements of a design into ring levels. An important goal of clean architecture is to provide developers with a way to organize code in such a way that it encapsulates the business logic but keeps it separate from the delivery mechanism ",
             "userId": 1,
+            "likes": [],
+            "followers": []
+        },
+        {
+            "id": 2,
+            "book_pic":"https://empirewriter.com/wp-content/uploads/2022/02/atomichabits.png",
+            "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+            "author": "James Clear",
+            "book_description": "An atomic habit is a regular practice or routine that is not only small and easy to do but is also the source of incredible power; a component of the system of compound growth. ",
+            "userId": 2,
+            "likes": [],
+            "followers": []
+        },
+        {
+            "id": 3,
+            "book_pic": "https://static.mercdn.net/item/detail/orig/photos/m24502341269_1.jpg?1683165365",
+            "title": "A Philosophy of Software Design",
+            "author": "John Ousterhout",
+            "book_description": "This book addresses the topic of software design: how to decompose complex software systems into modules (such as classes and methods) that can be implemented relatively independently. The book first introduces the fundamental problem in software design, which is managing complexity. It then discusses philosophical issues about how to approach the software design process, and it presents a collection of design principles to apply during software design.",
+            "userId": 2,
+            "likes": [],
+            "followers": []
+
+        },
+        {
+            "id": 4,
+            "book_pic": "https://w7.pngwing.com/pngs/767/253/png-transparent-how-to-win-friends-and-influence-people-the-7-habits-of-highly-effective-people-self-help-book-author-book-text-friendship-audiobook.png",
+            "title": "How to Win Friends & Influence People",
+            "author": "Dale Carnegie",
+            "book_description": "How to Win Friends and Influence People by Dale Carnegie is a self-help classic that reads as a life manual. The core idea is that you can change other people’s behavior simply by changing your own. It teaches you the principles to better understand people, become a more likable person, improve relationships, win others over, and influence behavior through leadership.",
+            "userId": 3,
+            "likes": [],
+            "followers": []
+
+        },
+        {
+            "id": 5,
+            "book_pic": "https://i.ebayimg.com/images/g/-TAAAOSweQlkEKCr/s-l1600.jpg",
+            "title": "Think Like a Programmer: An Introduction to Creative Problem Solving",
+            "author": "V. Anton Spraul",
+            "book_description": "The real challenge of programming isn't learning a language's syntax—it's learning to creatively solve problems so you can build something great. In this one-of-a-kind text, author V. Anton Spraul breaks down the ways that programmers solve problems and teaches you what other introductory books often ignore: how to Think Like a Programmer. Each chapter tackles a single programming concept, like classes, pointers, and recursion, and open-ended exercises throughout challenge you to apply your knowledge.",
+            "userId": 3,
             "likes": [],
             "followers": []
         }
