@@ -2,10 +2,7 @@ import React from "react";
 import Logo from "../components/Logo";
 import LeftMainBar from "../components/LeftMainBar";
 import Logout from "../components/Logout";
-import HomePage from "../pages/HomePage";
-import TopicsPage from "../pages/TopicsPage";
-import BooksPage from "../pages/BooksPage";
-import VideosPage from "../pages/VideosPage";
+import AppRoutes from "../routes/AppRoutes";
 
 const Layout = () => {
   return (
@@ -27,10 +24,7 @@ const Layout = () => {
           </div>
         </div>
       </section>
-      {/* <HomePage /> */}
-      {/* <TopicsPage /> */}
-      {/* <BooksPage /> */}
-      <VideosPage />
+      <AppRoutes />
     </main>
   );
 };

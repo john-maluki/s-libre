@@ -1,6 +1,5 @@
 import React from "react";
 import RightMainBar from "../components/RightMainBar";
-import VideoCard from "../components/VideoCard";
 import Videos from "../components/Videos";
 
 const VideosPage = () => {
