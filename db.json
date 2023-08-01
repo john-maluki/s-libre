@@ -45,7 +45,43 @@
             "userId": 1,
             "likes": [],
             "followers": []
+        },
+        {
+            "id": 2,
+            "title": "Flow control structures",
+            "topic_description": "Flow Control Structures are the fundamental components of computer programs. They are commands that allow a program to “decide” to take one direction or another.There are three basic types of control structures: sequential, selection, and iteration.",
+            "userId": 2,
+            "likes": [],
+            "followers": []
+        },
+        {
+            "id": 3,
+            "title": "Debugging",
+            "topic_description": "Debugging is a crucial skill. It involves detecting and removing existing and potential errors, defects, or ‘loopholes’ in one’s code.",
+            "userId": 3,
+            "likes": [],
+            "followers": []
+        },
+        {
+            "id": 4,
+            "title": "Variable declaration",
+            "topic_description": "Variables are containers for storing data values, a memory location for a data type. Variables are created using a declaration or keyword that varies across languages.",
+            "userId": 4,
+            "likes": [],
+            "followers": []
+        },
+        {
+            "id": 5,
+            "title": "Data Structure ",
+            "topic_description": "A Data Structure is a collection of data values. These structures include operations that can be applied to that data. Data structures are important in computer programming for organizing, managing, and storing data quickly and efficiently.",
+            "userId": 5,
+            "likes": [],
+            "followers": []
         }
+
+
+
+
     ],
     "videos": [
         {
@@ -110,6 +146,30 @@
             "description": "Clean architecture is a software design philosophy that separates the elements of a design into ring levels. An important goal of clean architecture is to provide developers with a way to organize code in such a way that it encapsulates the business logic but keeps it separate from the delivery mechanism ",
             "userId": 1,
             "topicId": 1
+        },
+        {
+            "id": 2,
+            "description": "Flow Control Structures are the fundamental components of computer programs. ",
+            "userId": 2,
+            "topicId": 2
+        },
+        {
+            "id": 3,
+            "description": "Debugging involves detecting,removing existing/potential errors, defects, or ‘loopholes’ in one’s code.",
+            "userId": 3,
+            "topicId": 3
+        },
+        {
+            "id": 4,
+            "description": "Variables are containers for storing data values. ",
+            "userId": 4,
+            "topicId": 4
+        },
+        {
+            "id": 5,
+            "description": "Data Structure is a collection of data values",
+            "userId": 5,
+            "topicId": 5
         }
     ],
     "comments_books": [
