@@ -2,39 +2,49 @@
     "users": [
         {
             "id": 1,
-            "name": "Joy Wagere",
-            "username": "doe@test.com",
-            "password": "doe",
+            "name": "John Maluki ",
+            "username": "johnmaluki@libre.com",
+            "password": "john",
             "profile_pic": "https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?size=626&ext=jpg&ga=GA1.1.56092171.1688454543&semt=ais",
             "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
             "followers": []
+
         },
         {
             "id": 2,
-            "name": "Naniel Leki",
-            "username": "doe@test.com",
-            "password": "doe",
+            "name": "Frida Gathima",
+            "username": "fridagathima@libre.com",
+            "password": "frida",
             "profile_pic": "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
             "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
             "followers": []
         },
         {
             "id": 3,
-            "name": "Benson Nzaia",
-            "username": "doe@test.com",
-            "password": "doe",
+            "name": "Brian KIbet",
+            "username": "briankibet@libre.com",
+            "password": "brian",
             "profile_pic": "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
             "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
             "followers": []
         },
         {
             "id": 4,
-            "name": "Mercy Wanjere",
-            "username": "doe@test.com",
-            "password": "doe",
+            "name": "Arnold Aswani",
+            "username": "arnoldaswani@libre.com",
+            "password": "arnold",
             "profile_pic": "https://images.unsplash.com/photo-1569173112611-52a7cd38bea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
             "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
             "followers": []
+        },
+        {    "id": 5,
+             "name": "Cytray Kim",
+             "username": "cytraykim@libre.com",
+             "password": "tracy",
+             "profile_pic":"public/photo/code.jpg",
+             "pitch":"Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
+             "followers":[]
+
         }
     ],
     "topics": [
