@@ -88,10 +88,6 @@
             "likes": [],
             "followers": []
         }
-
-
-
-
     ],
     "videos": [
         {
@@ -183,7 +179,6 @@
             "userId": 3,
             "likes": [],
             "followers": []
-
         }
     ],
     "comments_videos": [
