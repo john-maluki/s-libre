@@ -1,6 +1,6 @@
 import React from "react";
 import RightMainBar from "../components/RightMainBar";
-import Books from "../components/Books";
+import Books from "../components/books/Books";
 
 const BooksPage = () => {
   return (

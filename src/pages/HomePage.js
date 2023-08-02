@@ -1,6 +1,6 @@
 import React from "react";
 import RightMainBar from "../components/RightMainBar";
-import Users from "../components/Users";
+import Users from "../components/users/Users";
 
 const HomePage = () => {
   return (

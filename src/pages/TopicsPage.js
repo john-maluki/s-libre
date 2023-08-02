@@ -1,6 +1,6 @@
 import React from "react";
 import RightMainBar from "../components/RightMainBar";
-import Topics from "../components/Topics";
+import Topics from "../components/topics/Topics";
 
 const TopicsPage = () => {
   return (
