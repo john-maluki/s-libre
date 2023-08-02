@@ -7,6 +7,7 @@
 body {
   background-color: #ffffff;
   font-family: Roboto;
+  max-width: 1350px;
 }
 
 ul {
@@ -378,4 +379,18 @@ button {
     box-shadow: 1px 1px 2px grey;
     opacity: 1;
   }
+}
+
+/* Login page */
+.login-page {
+  width: 100%;
+  height: auto;
+}
+
+.login-card {
+  width: 30%;
+  height: 300px;
+  margin: 200px auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
