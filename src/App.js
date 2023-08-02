@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { AuthContext } from "./contexts/AuthContext";
 import Layout from "./layouts/Layout";
-import LoginPage from "./pages/LoginPage";
+import AuthRoutes from "./routes/AuthRoutes";
 
 function App() {
   const [authUser, setAuthUser] = useState(null);
@@ -30,7 +30,7 @@ function App() {
       <Layout />
     </AuthContext.Provider>
   ) : (
-    <LoginPage login={login} />
+    <AuthRoutes login={login} />
   );
 }
 

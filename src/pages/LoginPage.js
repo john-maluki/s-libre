@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = ({ login }) => {
   const [userCredetials, setUserCredetials] = useState({
@@ -56,6 +57,9 @@ const LoginPage = ({ login }) => {
             <input type="submit" value="LOGIN" />
           </div>
         </form>
+        <div className="or-link">
+          <Link to="/signup">Signup</Link>
+        </div>
       </div>
     </div>
   );

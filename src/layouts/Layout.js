@@ -27,7 +27,7 @@ const Layout = () => {
           </div>
         </div>
       </section>
-      <AppRoutes />
+      <AppRoutes authUser={authUser} />
     </main>
   );
 };
