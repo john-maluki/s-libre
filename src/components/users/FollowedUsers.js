@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
 import UserCard from "./UserCard";
 import { UsersContext } from "../../contexts/UserContext";
-import { removeAuthUserFromUsersList } from "../../utils/functions";
 import { AuthContext } from "../../contexts/AuthContext";
 
-const Users = ({ onFollowUser }) => {
-  const users = useContext(UsersContext);
+const FollowedUsers = () => {
   const authUser = useContext(AuthContext);
-  const noAuthUserList = removeAuthUserFromUsersList(users, authUser);
-
-  const userList = noAuthUserList.map((user) => (
+  const users = useContext(UsersContext);
+  const followedUsers = users.filter(
+    (user) => user.id !== authUser.id && user.followers.includes(authUser.id)
+  );
+  const userList = followedUsers.map((user) => (
     <UserCard key={user.id} user={user} />
   ));
 
   return <>{userList}</>;
 };
 
-export default Users;
+export default FollowedUsers;

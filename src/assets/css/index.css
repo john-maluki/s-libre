@@ -184,9 +184,10 @@ button {
   width: 90%;
 }
 
-.user-card__handle,
+.user-card__follow,
 .topic-card__handle {
   font-size: 15px;
+  cursor: pointer;
 }
 
 .user-card__description {
