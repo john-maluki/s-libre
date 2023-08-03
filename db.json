@@ -34,7 +34,9 @@
       "password": "arnold",
       "profile_pic": "https://images.unsplash.com/photo-1569173112611-52a7cd38bea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
       "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
-      "followers": [1]
+      "followers": [
+        1
+      ]
     },
     {
       "id": 5,
@@ -43,7 +45,9 @@
       "password": "tracy",
       "profile_pic": "https://i.pinimg.com/564x/1f/83/c5/1f83c5ce9090c12d1969ad7a3745cc82.jpg",
       "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
-      "followers": [1]
+      "followers": [
+        1
+      ]
     }
   ],
   "topics": [

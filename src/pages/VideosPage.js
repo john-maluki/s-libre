@@ -1,25 +1,35 @@
-import React,{useState, useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import RightMainBar from "../components/RightMainBar";
 import Videos from "../components/videos/Videos";
-import {MAIN_DOMAIN } from "../utils/constants"
+import ShareVideoForm from "../components/videos/ShareVideoForm";
+import Search from "../components/Search";
+import ShareButton from "../components/ShareButton";
+import { MAIN_DOMAIN } from "../utils/constants";
 
 const VideosPage = () => {
+  const [showVideoForm, setShowVideoForm] = useState(false);
   const [videos, setVideos] = useState([]);
-  const [videosComments, setVideoComments] =useState([]); 
-  const fetchVideoCommentsFromServer = () => {
-    fetch(`${ MAIN_DOMAIN }/videos_comments`)
-      .then((resp) => resp.json())
-      .then((videos_Comments) => setVideos(videos_Comments));
+  // const [videosComments, setVideoComments] = useState([]);
+
+  const showForm = () => {
+    setShowVideoForm(!showVideoForm);
   };
 
+  // const fetchVideoCommentsFromServer = () => {
+  //   fetch(`${MAIN_DOMAIN}/videos_comments`)
+  //     .then((resp) => resp.json())
+  //     .then((videosComments) => setVideoComments(videosComments));
+  // };
+
   const fetchVideosFromServer = () => {
-    fetch(`${ MAIN_DOMAIN }/videos`)
+    fetch(`${MAIN_DOMAIN}/videos`)
       .then((resp) => resp.json())
       .then((videos) => setVideos(videos));
   };
 
   useEffect(() => {
-    fetchVideoCommentsFromServer();
+    fetchVideosFromServer();
+    // fetchVideoCommentsFromServer();
   }, []);
 
   return (
@@ -35,11 +45,19 @@ const VideosPage = () => {
           </div>
           <div id="container-card__content" className="container-card__content">
             {/* <!-- Videos list goes here --> */}
-            <Videos />
+            <Videos videos={videos} />
           </div>
         </div>
       </section>
-      <RightMainBar />
+      <RightMainBar showForm={showForm}>
+        <Search placeholder="Search Videos" />
+        <ShareButton
+          onAction={showForm}
+          name="Share Video"
+          desc="Share video tutorial with others"
+        />
+      </RightMainBar>
+      {showVideoForm ? <ShareVideoForm showForm={showForm} /> : null}
     </>
   );
 };

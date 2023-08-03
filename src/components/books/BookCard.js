@@ -1,6 +1,6 @@
 import React from "react";
 
-const BookCard = ({book}) => {
+const BookCard = ({ book }) => {
   return (
     <div className="user-card">
       <div className="user-card__profile">
@@ -12,19 +12,10 @@ const BookCard = ({book}) => {
       </div>
       <div className="user-card__details">
         <div className="user-card__header">
-          <h1 className="user-card__title">
-            {book.title}
-
-          </h1>
+          <h1 className="user-card__title">{book.title}</h1>
         </div>
-        <p className="user-card__description">
-         {book.book_description}
-        </p>
-        <img
-          className="user-card__img"
-          src={book.book_pic}
-          alt="Joy Wagere"
-        />
+        <p className="user-card__description">{book.book_description}</p>
+        <img className="user-card__img" src={book.book_pic} alt={book.title} />
         <div className="user-card__footer">
           <div className="user-card__expression">
             <i

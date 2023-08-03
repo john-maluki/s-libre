@@ -1,19 +1,28 @@
-import React,{useState, useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import RightMainBar from "../components/RightMainBar";
 import Topics from "../components/topics/Topics";
-import {MAIN_DOMAIN } from "../utils/constants"
+import ShareTopicForm from "../components/topics/ShareTopicForm";
+import Search from "../components/Search";
+import ShareButton from "../components/ShareButton";
+import { MAIN_DOMAIN } from "../utils/constants";
 
 const TopicsPage = () => {
+  const [showTopicForm, setShowTopicForm] = useState(false);
   const [topics, setTopics] = useState([]);
-  const [topicComments, setTopicComents] =useState([]); 
-  const fetchTopicsCommentsFromServer = () => {
-    fetch(`${ MAIN_DOMAIN }/topics_comments`)
-      .then((resp) => resp.json())
-      .then((topics_comments) => setTopics(topics_comments));
+  // const [topicComments, setTopicComents] = useState([]);
+
+  const showForm = () => {
+    setShowTopicForm(!showTopicForm);
   };
 
+  // const fetchTopicsCommentsFromServer = () => {
+  //   fetch(`${MAIN_DOMAIN}/topics_comments`)
+  //     .then((resp) => resp.json())
+  //     .then((topicsComments) => setTopicComents(topicsComments));
+  // };
+
   const fetchTopicsFromServer = () => {
-    fetch(`${ MAIN_DOMAIN }/topics`)
+    fetch(`${MAIN_DOMAIN}/topics`)
       .then((resp) => resp.json())
       .then((topics) => setTopics(topics));
   };
@@ -35,11 +44,15 @@ const TopicsPage = () => {
           </div>
           <div className="container-card__content">
             {/* <!-- Topics list goes here --> */}
-            <Topics />
+            <Topics topics={topics} />
           </div>
         </div>
       </section>
-      <RightMainBar />
+      <RightMainBar>
+        <Search placeholder="Search Topics" />
+        <ShareButton onAction={showForm} />
+      </RightMainBar>
+      {showTopicForm ? <ShareTopicForm showForm={showForm} /> : null}
     </>
   );
 };
