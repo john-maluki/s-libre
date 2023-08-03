@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignupPage.css";
 
@@ -77,10 +77,6 @@ const SignupPage = () => {
     setFormErrors(errors);
     return errors;
   };
-
-  useEffect(() => {
-    formValidation();
-  }, [formData]);
 
   return (
     <div className="signup-body">
