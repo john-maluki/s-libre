@@ -4,15 +4,18 @@ import { MAIN_DOMAIN } from "../../utils/constants";
 
 const ShareBookForm = ({ showForm, onAddBook }) => {
   const authUser = useContext(AuthContext);
-  const [formData, setFormData] = useState({
+  const initialData = {
     title: "",
     author: "",
     book_description: "",
-    book_pic: "",
+    book_pic:
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80",
     userId: authUser.id,
     likes: [],
     followers: [],
-  });
+  };
+
+  const [formData, setFormData] = useState(initialData);
   const postDataToServer = (newBook) => {
     fetch(`${MAIN_DOMAIN}/books`, {
       method: "POST",
@@ -34,6 +37,7 @@ const ShareBookForm = ({ showForm, onAddBook }) => {
   const handleFormSubmision = (e) => {
     e.preventDefault();
     postDataToServer(formData);
+    setFormData(initialData);
   };
 
   return (
@@ -82,7 +86,7 @@ const ShareBookForm = ({ showForm, onAddBook }) => {
           id="modal__book-url"
           type="url"
           placeholder="image url"
-          required
+          // required
           name="book_pic"
           onChange={handleChange}
         />

@@ -31,6 +31,9 @@ const TopicsPage = () => {
     fetchTopicsFromServer();
   }, []);
 
+  const addTopic = (topic) => {
+    setTopics([topic, ...topics]);
+  };
   return (
     <>
       <section className="main__content-pane">
@@ -52,7 +55,9 @@ const TopicsPage = () => {
         <Search placeholder="Search Topics" />
         <ShareButton onAction={showForm} />
       </RightMainBar>
-      {showTopicForm ? <ShareTopicForm showForm={showForm} /> : null}
+      {showTopicForm ? (
+        <ShareTopicForm showForm={showForm} onAddTopic={addTopic} />
+      ) : null}
     </>
   );
 };
