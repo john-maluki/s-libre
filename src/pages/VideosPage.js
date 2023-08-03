@@ -1,8 +1,27 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import RightMainBar from "../components/RightMainBar";
 import Videos from "../components/videos/Videos";
+import {MAIN_DOMAIN } from "../utils/constants"
 
 const VideosPage = () => {
+  const [videos, setVideos] = useState([]);
+  const [videosComments, setVideoComments] =useState([]); 
+  const fetchVideoCommentsFromServer = () => {
+    fetch(`${ MAIN_DOMAIN }/videos_comments`)
+      .then((resp) => resp.json())
+      .then((videos_Comments) => setVideos(videos_Comments));
+  };
+
+  const fetchVideosFromServer = () => {
+    fetch(`${ MAIN_DOMAIN }/videos`)
+      .then((resp) => resp.json())
+      .then((videos) => setVideos(videos));
+  };
+
+  useEffect(() => {
+    fetchVideoCommentsFromServer();
+  }, []);
+
   return (
     <>
       <section className="main__content-pane">
