@@ -1,46 +1,89 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RightMainBar from "../components/RightMainBar";
-import Users from "../components/users/Users";
+import { Link, Outlet } from "react-router-dom";
+import { UsersContext } from "../contexts/UserContext";
+import { AuthContext } from "../contexts/AuthContext";
+import { MAIN_DOMAIN } from "../utils/constants";
 
 const HomePage = () => {
+  const [users, setUsers] = useState([]);
+  const authUser = useContext(AuthContext);
+
+  const fetchUsersFromServer = () => {
+    fetch(`${MAIN_DOMAIN}/users`)
+      .then((resp) => resp.json())
+      .then((users) => setUsers(users));
+  };
+
+  const patchUserOnServer = (user) => {
+    fetch(`${MAIN_DOMAIN}/users/${user.id}`, {
+      method: "PATCH",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((user) => updateUser(user));
+  };
+
+  const updateUser = (user) => {
+    const modifiedUsers = users.map((currentUser) =>
+      currentUser.id === user.id ? user : currentUser
+    );
+    setUsers(modifiedUsers);
+  };
+
+  const followUser = (user) => {
+    let newUser;
+    if (user.followers.includes(authUser.id)) {
+      newUser = {
+        ...user,
+        followers: user.followers.filter(
+          (followerId) => followerId !== authUser.id
+        ),
+      };
+    } else {
+      newUser = {
+        ...user,
+        followers: [...user.followers, authUser.id],
+      };
+    }
+    patchUserOnServer(newUser);
+  };
+
+  useEffect(() => {
+    fetchUsersFromServer();
+  }, []);
+
+  const linkStyle = {
+    textDecoration: "none",
+    color: "black",
+  };
   return (
     <>
-      <section class="main__content-pane">
-        <div id="home_modal" class="container-card">
-          <div class="container-card__header">
-            <h1 class="container-card__page">Home</h1>
-            <div class="container-card__tabs">
-              <h4>Students</h4>
-              <h4>Following</h4>
+      <section className="main__content-pane">
+        <div id="home_modal" className="container-card">
+          <div className="container-card__header">
+            <h1 className="container-card__page">Home</h1>
+            <div className="container-card__tabs">
+              <h4>
+                <Link to="/" style={linkStyle}>
+                  All
+                </Link>
+              </h4>
+              <h4>
+                <Link to="followed_users" style={linkStyle}>
+                  Following
+                </Link>
+              </h4>
             </div>
           </div>
-          <div class="container-card__content">
+          <div className="container-card__content">
             {/* <!-- Users list goes here --> */}
-            <Users />
-          </div>
-        </div>
-        <div id="topics_modal" class="container-card container-card--topics">
-          <div class="container-card__header">
-            <h1 class="container-card__page">Topics</h1>
-            <div class="container-card__tabs">
-              <h4>Topics</h4>
-              <h4>Following</h4>
-            </div>
-          </div>
-          <div class="container-card__content">
-            {/* <!-- Topics list goes here --> */}
-          </div>
-        </div>
-        <div id="videos_modal" class="container-card container-card--videos">
-          <div class="container-card__header">
-            <h1 class="container-card__page">Videos</h1>
-            <div class="container-card__tabs">
-              <h4>All</h4>
-              <h4>For You</h4>
-            </div>
-          </div>
-          <div id="container-card__content" class="container-card__content">
-            {/* <!-- Videos list goes here --> */}
+            <UsersContext.Provider value={users}>
+              <Outlet context={followUser} />
+            </UsersContext.Provider>
           </div>
         </div>
       </section>
