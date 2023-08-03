@@ -5,9 +5,8 @@ import Logout from "../components/Logout";
 import AppRoutes from "../routes/AppRoutes";
 import { AuthContext } from "../contexts/AuthContext";
 
-const Layout = () => {
+const Layout = ({ logout }) => {
   const authUser = useContext(AuthContext);
-  console.log(authUser);
   return (
     <main className="main">
       <section class="main__left-pane">
@@ -23,7 +22,7 @@ const Layout = () => {
           />
           <div class="main__profile">
             <h4 class="main__profile-name">{authUser.name}</h4>
-            <Logout />
+            <Logout logout={logout} />
           </div>
         </div>
       </section>

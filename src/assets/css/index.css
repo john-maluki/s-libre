@@ -71,11 +71,17 @@ button {
   font-size: 17px;
 }
 
-.main__profile-handle {
+.main__profile-logout {
   margin-top: 3px;
   font-size: 15px;
-  opacity: 0.7;
   letter-spacing: 2px;
+  background-color: #0f1419;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  border-radius: 20px;
 }
 
 .container-card__header {

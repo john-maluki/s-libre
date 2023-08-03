@@ -1,7 +1,11 @@
 import React from "react";
 
-const Logout = () => {
-  return <h4 class="main__profile-handle">@johnmaluki</h4>;
+const Logout = ({ logout }) => {
+  return (
+    <button class="main__profile-logout" onClick={logout}>
+      Logout
+    </button>
+  );
 };
 
 export default Logout;
