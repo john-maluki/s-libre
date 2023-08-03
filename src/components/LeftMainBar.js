@@ -6,11 +6,11 @@ const LeftMainBar = () => {
     textDecoration: "none",
   };
   return (
-    <div class="main__nav">
-      <ul class="main__items">
-        <li id="main__item--home" class="main__item">
-          <div class="main_link">
-            <i class="fa fa-home" aria-hidden="true"></i>
+    <div className="main__nav">
+      <ul className="main__items">
+        <li id="main__item--home" className="main__item">
+          <div className="main_link">
+            <i className="fa fa-home" aria-hidden="true"></i>
             <span>
               <Link to="/" style={linkStyle}>
                 Home
@@ -18,9 +18,9 @@ const LeftMainBar = () => {
             </span>
           </div>
         </li>
-        <li id="main__item--topics" class="main__item">
-          <div class="main_link">
-            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+        <li id="main__item--topics" className="main__item">
+          <div className="main_link">
+            <i className="fa fa-lightbulb-o" aria-hidden="true"></i>
             <span>
               <Link to="/topics" style={linkStyle}>
                 Topics
@@ -28,9 +28,9 @@ const LeftMainBar = () => {
             </span>
           </div>
         </li>
-        <li id="main__item--videos" class="main__item">
-          <div class="main_link">
-            <i class="fa fa-video-camera" aria-hidden="true"></i>
+        <li id="main__item--videos" className="main__item">
+          <div className="main_link">
+            <i className="fa fa-video-camera" aria-hidden="true"></i>
             <span>
               <Link to="/videos" style={linkStyle}>
                 Videos
@@ -38,9 +38,9 @@ const LeftMainBar = () => {
             </span>
           </div>
         </li>
-        <li id="main__item--topics" class="main__item">
-          <div class="main_link">
-            <i class="fa fa-book" aria-hidden="true"></i>
+        <li id="main__item--topics" className="main__item">
+          <div className="main_link">
+            <i className="fa fa-book" aria-hidden="true"></i>
             <span>
               <Link to="/books" style={linkStyle}>
                 Books

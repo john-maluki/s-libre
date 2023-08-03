@@ -5,16 +5,16 @@ import Videos from "../components/videos/Videos";
 const VideosPage = () => {
   return (
     <>
-      <section class="main__content-pane">
-        <div id="videos_modal" class="container-card">
-          <div class="container-card__header">
-            <h1 class="container-card__page">Videos</h1>
-            <div class="container-card__tabs">
+      <section className="main__content-pane">
+        <div id="videos_modal" className="container-card">
+          <div className="container-card__header">
+            <h1 className="container-card__page">Videos</h1>
+            <div className="container-card__tabs">
               <h4>All</h4>
               <h4>Following</h4>
             </div>
           </div>
-          <div id="container-card__content" class="container-card__content">
+          <div id="container-card__content" className="container-card__content">
             {/* <!-- Videos list goes here --> */}
             <Videos />
           </div>
