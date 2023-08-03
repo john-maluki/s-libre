@@ -9,9 +9,11 @@ import {
   storeAuthUserOnLocalStorage,
 } from "./utils/functions";
 import { MAIN_DOMAIN } from "./utils/constants";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [authUser, setAuthUser] = useState(null);
+  const navigate = useNavigate();
 
   const loginFromLocalStorage = () => {
     const storedAuthUser = getAuthUserFromLocalStorage();
@@ -21,6 +23,7 @@ function App() {
   const logout = () => {
     removeAuthUserFromLocalStorage();
     setAuthUser(null);
+    return navigate("/");
   };
 
   useEffect(() => {
