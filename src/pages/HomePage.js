@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { UsersContext } from "../contexts/UserContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { MAIN_DOMAIN } from "../utils/constants";
+import Search from "../components/Search";
 
 const HomePage = () => {
   const [users, setUsers] = useState([]);
@@ -87,7 +88,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <RightMainBar />
+      <RightMainBar>
+        <Search placeholder="Search Users" />
+      </RightMainBar>
     </>
   );
 };
