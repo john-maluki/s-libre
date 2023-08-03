@@ -32,6 +32,10 @@ const VideosPage = () => {
     // fetchVideoCommentsFromServer();
   }, []);
 
+  const addVideo = (video) => {
+    setVideos([video, ...videos]);
+  };
+
   return (
     <>
       <section className="main__content-pane">
@@ -57,7 +61,9 @@ const VideosPage = () => {
           desc="Share video tutorial with others"
         />
       </RightMainBar>
-      {showVideoForm ? <ShareVideoForm showForm={showForm} /> : null}
+      {showVideoForm ? (
+        <ShareVideoForm showForm={showForm} onAddVideo={addVideo} />
+      ) : null}
     </>
   );
 };
