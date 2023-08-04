@@ -5,15 +5,15 @@
 The purpose of this application, S-LIBRE, is to enable technical students to share materials such as videos, topics, and books. The applications also allow them to leave comments, like, leave a review and follow the various topics available. This will help create a sense of community to students who oftentimes do not yet have an active social network. For the students who are shy, it will also help them interact with more people thus also building their social skills and helping them get out of their comfort zone. For the students who do not have a network that matches their interest, this application will help them connect with people who share similar interests.
 
 ### Project Setup, Installation and Running Locally
--Clone the repository: git clone <repository-url> cd s-libre
--Install dependencies: npm install
--Start the development server: npm start
+- Clone the repository: git clone <repository-url> cd s-libre
+- Install dependencies: npm install
+- Start the development server: npm start
 
 # Technologies Used
 The following have been used on this project:
-.HTML
-.CSS
-.JavaScript / React
+- HTML
+- CSS
+- JavaScript / React
  
 ## Live link to view the project View S-LIBRE
   https://s-libre.netlify.app/
@@ -28,10 +28,10 @@ The following have been used on this project:
 - Videos
   <img src="./doc/screenshots/Vdeos.png" alt="screenshot" />
 ### Setup Requirements
-.Git
-.Web-browser or your choice
-.Github
-.Node.js (https://nodejs.org/)
+- Git
+- Web-browser or your choice
+- Github
+- Node.js (https://nodejs.org/)
 
 
 # Known Bugs
@@ -43,11 +43,11 @@ So far so good there are no bugs related to this project 😎😎😎😎😎
 To make a contribution to the code used or any suggestions you can click on the contact link and email me your suggestions.
 
 ### Email:
-. tracy.kagiri@student.moringaschool.com
-. frida.gathima@student.moringaschool.com
-. john.maluki@student.moringaschool.com
-. brian.kibet2@student.moringaschool.com
-. arnold.mwangi@student.moringaschool.com
+- tracy.kagiri@student.moringaschool.com
+- frida.gathima@student.moringaschool.com
+- john.maluki@student.moringaschool.com
+- brian.kibet2@student.moringaschool.com
+- arnold.aswani@student.moringaschool.com
 
 ## License
 MIT License

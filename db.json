@@ -111,10 +111,12 @@
       "video_description": "In this tutorial, you'll learn how to add a YouTube video into your project.",
       "video_url": "https://www.youtube.com/embed/ly36kn0ug4k",
       "likes": [
-        1
+        1,
+        3
       ],
       "followers": [
-        1
+        1,
+        3
       ],
       "userId": 2
     },
