@@ -53,7 +53,7 @@ const LoginPage = ({ login }) => {
               />
             </div>
           </div>
-          <div className="form-group">
+          <div className="btnform-group">
             <input type="submit" value="LOGIN" />
           </div>
         </form>
