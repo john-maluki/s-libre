@@ -19,10 +19,28 @@ The following have been used on this project:
 
 - React
 - CSS
+- HTML
+- React Dom
 
 ## Live link to view the project View S-LIBRE
 
 https://s-libre.netlify.app/
+
+Topics:
+
+- See various topics when you click on the Topic button.
+- Follow various topics of interest:
+- Add topics to the students S-Libre.
+
+Books
+- see various books when you click the Books button.
+- like and follow a book of interest
+- add Books to the s-Libre
+
+Videos
+- see various videos of S-Libre when you click on the Video button'
+- follow a video and like a video of interest
+- add a video to the S-Libre
 
 ## Screenshots of the project
 
@@ -65,6 +83,11 @@ To make a contribution to the code used or any suggestions you can click on the 
 - John Maluki
 - Brian Kibet
 - Arnold Aswani
+
+## Acknowledgements
+We would like to express our gratitude to the open-source community and all the developers whose libraries and tools have made this project possible.
+
+Thank you for using S-LIBRE! We hope it helps you on your journey to a successful and fulfilling career.
 
 ## License
 
