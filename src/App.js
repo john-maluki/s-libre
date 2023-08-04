@@ -10,8 +10,10 @@ import {
 } from "./utils/functions";
 import { MAIN_DOMAIN } from "./utils/constants";
 import { useNavigate } from "react-router-dom";
+import { UsersContext } from "./contexts/UserContext";
 
 function App() {
+  const [users, setUsers] = useState([]);
   const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
 
@@ -26,8 +28,15 @@ function App() {
     return navigate("/");
   };
 
+  const fetchUsersFromServer = () => {
+    fetch(`${MAIN_DOMAIN}/users`)
+      .then((resp) => resp.json())
+      .then((users) => setUsers(users));
+  };
+
   useEffect(() => {
     loginFromLocalStorage();
+    fetchUsersFromServer();
   }, []);
 
   const login = (userCredetials) => {
@@ -50,7 +59,9 @@ function App() {
 
   return authUser ? (
     <AuthContext.Provider value={authUser}>
-      <Layout logout={logout} />
+      <UsersContext.Provider value={users}>
+        <Layout logout={logout} setUsers={setUsers} />
+      </UsersContext.Provider>
     </AuthContext.Provider>
   ) : (
     <AuthRoutes login={login} />

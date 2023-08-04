@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { findUserWithId } from "../../utils/functions";
+import { UsersContext } from "../../contexts/UserContext";
+import { useOutletContext } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const BookCard = ({ book }) => {
+  const users = useContext(UsersContext);
+  const user = findUserWithId(users, book.userId);
+  const [likeBook, followBook] = useOutletContext();
+  const authUser = useContext(AuthContext);
+
+  const hasLikedBook = book.likes.includes(authUser.id);
+  const hasFollowedBook = book.followers.includes(authUser.id);
+
   return (
     <div className="user-card">
       <div className="user-card__profile">
-        <img
-          className="img-profile"
-          src="https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?size=626&amp;ext=jpg&amp;ga=GA1.1.56092171.1688454543&amp;semt=ais"
-          alt="Joy Wagere"
-        />
+        <img className="img-profile" src={user.profile_pic} alt={user.name} />
       </div>
       <div className="user-card__details">
         <div className="user-card__header">
@@ -19,21 +27,29 @@ const BookCard = ({ book }) => {
         <div className="user-card__footer">
           <div className="user-card__expression">
             <i
-              className="fa fa-thumbs-up user-card__user-expression-icon"
+              className={`fa ${
+                hasLikedBook ? "fa-thumbs-up" : "fa-thumbs-o-up"
+              } user-card__user-expression-icon`}
               title="Follow"
               id="2"
+              onClick={() => likeBook(book)}
             ></i>
             <h3 className="user-card__expression-number">
-              Likes <span>{book.likes.length}</span>
+              {hasLikedBook ? "Liked" : "Like"}
+              <span> {book.likes.length}</span>
             </h3>
           </div>
           <div className="user-card__expression">
             <i
-              className="fa fa-user user-card__user-expression-icon"
+              className={`fa ${
+                hasFollowedBook ? "fa-user" : "fa-user-o"
+              } user-card__user-expression-icon`}
               title="Follow"
+              onClick={() => followBook(book)}
             ></i>
             <h3 className="user-card__expression-number">
-              Followers <span>{book.followers.length}</span>
+              {hasFollowedBook ? "Following" : "Follow"}
+              <span> {book.followers.length}</span>
             </h3>
           </div>
         </div>

@@ -1,20 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import RightMainBar from "../components/RightMainBar";
 import { Link, Outlet } from "react-router-dom";
-import { UsersContext } from "../contexts/UserContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { MAIN_DOMAIN } from "../utils/constants";
 import Search from "../components/Search";
+import { UsersContext } from "../contexts/UserContext";
 
-const HomePage = () => {
-  const [users, setUsers] = useState([]);
+const HomePage = ({ setUsers }) => {
   const authUser = useContext(AuthContext);
-
-  const fetchUsersFromServer = () => {
-    fetch(`${MAIN_DOMAIN}/users`)
-      .then((resp) => resp.json())
-      .then((users) => setUsers(users));
-  };
+  const users = useContext(UsersContext);
 
   const patchUserOnServer = (user) => {
     fetch(`${MAIN_DOMAIN}/users/${user.id}`, {
@@ -53,10 +47,6 @@ const HomePage = () => {
     patchUserOnServer(newUser);
   };
 
-  useEffect(() => {
-    fetchUsersFromServer();
-  }, []);
-
   const linkStyle = {
     textDecoration: "none",
     color: "black",
@@ -82,9 +72,8 @@ const HomePage = () => {
           </div>
           <div className="container-card__content">
             {/* <!-- Users list goes here --> */}
-            <UsersContext.Provider value={users}>
-              <Outlet context={followUser} />
-            </UsersContext.Provider>
+
+            <Outlet context={followUser} />
           </div>
         </div>
       </section>

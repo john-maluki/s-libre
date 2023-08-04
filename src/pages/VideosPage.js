@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RightMainBar from "../components/RightMainBar";
-import Videos from "../components/videos/Videos";
 import ShareVideoForm from "../components/videos/ShareVideoForm";
 import Search from "../components/Search";
 import ShareButton from "../components/ShareButton";
 import { MAIN_DOMAIN } from "../utils/constants";
+import { VideosContext } from "../contexts/VideosContext";
+import { Link, Outlet } from "react-router-dom";
+import { getLinkStyle } from "../utils/functions";
+import { AuthContext } from "../contexts/AuthContext";
 
 const VideosPage = () => {
   const [showVideoForm, setShowVideoForm] = useState(false);
   const [videos, setVideos] = useState([]);
-  // const [videosComments, setVideoComments] = useState([]);
+  const authUser = useContext(AuthContext);
 
   const showForm = () => {
     setShowVideoForm(!showVideoForm);
   };
-
-  // const fetchVideoCommentsFromServer = () => {
-  //   fetch(`${MAIN_DOMAIN}/videos_comments`)
-  //     .then((resp) => resp.json())
-  //     .then((videosComments) => setVideoComments(videosComments));
-  // };
 
   const fetchVideosFromServer = () => {
     fetch(`${MAIN_DOMAIN}/videos`)
@@ -27,9 +24,61 @@ const VideosPage = () => {
       .then((videos) => setVideos(videos));
   };
 
+  const likeVideo = (video) => {
+    const hasLiked = checkIfUserLikedVideo(video);
+    let newData;
+    if (hasLiked) {
+      newData = {
+        ...video,
+        likes: [...video.likes.filter((id) => id !== authUser.id)],
+      };
+    } else {
+      newData = { ...video, likes: [...video.likes, authUser.id] };
+    }
+    updateVideoOnServer(newData);
+  };
+
+  const followVideo = (video) => {
+    const hasFollowed = checkIfUserFollowedVideo(video);
+    let newData;
+    if (hasFollowed) {
+      newData = {
+        ...video,
+        followers: [...video.followers.filter((id) => id !== authUser.id)],
+      };
+    } else {
+      newData = { ...video, followers: [...video.followers, authUser.id] };
+    }
+    updateVideoOnServer(newData);
+  };
+
+  const checkIfUserLikedVideo = (video) => {
+    return video.likes.includes(authUser.id);
+  };
+
+  const checkIfUserFollowedVideo = (video) => {
+    return video.followers.includes(authUser.id);
+  };
+
+  const updateVideoOnServer = (video) => {
+    fetch(`${MAIN_DOMAIN}/videos/${video.id}`, {
+      method: "PATCH",
+      body: JSON.stringify(video),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((video) => updateVideo(video));
+  };
+
+  const updateVideo = (video) => {
+    const newVideos = videos.map((v) => (v.id === video.id ? video : v));
+    setVideos(newVideos);
+  };
+
   useEffect(() => {
     fetchVideosFromServer();
-    // fetchVideoCommentsFromServer();
   }, []);
 
   const addVideo = (video) => {
@@ -43,13 +92,23 @@ const VideosPage = () => {
           <div className="container-card__header">
             <h1 className="container-card__page">Videos</h1>
             <div className="container-card__tabs">
-              <h4>All</h4>
-              <h4>Following</h4>
+              <h4>
+                <Link to="../videos" style={getLinkStyle()}>
+                  All
+                </Link>
+              </h4>
+              <h4>
+                <Link to="followed_videos" style={getLinkStyle()}>
+                  Following
+                </Link>
+              </h4>
             </div>
           </div>
           <div id="container-card__content" className="container-card__content">
             {/* <!-- Videos list goes here --> */}
-            <Videos videos={videos} />
+            <VideosContext.Provider value={videos}>
+              <Outlet context={[likeVideo, followVideo]} />
+            </VideosContext.Provider>
           </div>
         </div>
       </section>

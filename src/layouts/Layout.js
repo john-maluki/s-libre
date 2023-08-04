@@ -5,7 +5,7 @@ import Logout from "../components/Logout";
 import AppRoutes from "../routes/AppRoutes";
 import { AuthContext } from "../contexts/AuthContext";
 
-const Layout = ({ logout }) => {
+const Layout = ({ logout, setUsers }) => {
   const authUser = useContext(AuthContext);
   return (
     <main className="main">
@@ -26,7 +26,7 @@ const Layout = ({ logout }) => {
           </div>
         </div>
       </section>
-      <AppRoutes authUser={authUser} />
+      <AppRoutes authUser={authUser} setUsers={setUsers} />
     </main>
   );
 };
