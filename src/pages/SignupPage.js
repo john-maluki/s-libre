@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { MAIN_DOMAIN } from "../utils/constants";
 import "./SignupPage.css";
 
 const SignupPage = () => {
@@ -23,7 +24,7 @@ const SignupPage = () => {
     // console.log(formData);
     const errors = formValidation();
     if (Object.keys(errors).every((key) => !errors[key])) {
-      fetch("http://localhost:4000/users", {
+      fetch(`${MAIN_DOMAIN}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
