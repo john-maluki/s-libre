@@ -7,7 +7,9 @@
       "password": "john",
       "profile_pic": "data:image/jpeg;base64,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",
       "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
-      "followers": []
+      "followers": [
+        5
+      ]
     },
     {
       "id": 2,
@@ -25,7 +27,9 @@
       "password": "brian",
       "profile_pic": "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
       "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
-      "followers": []
+      "followers": [
+        5
+      ]
     },
     {
       "id": 4,
@@ -34,7 +38,7 @@
       "password": "arnold",
       "profile_pic": "https://images.unsplash.com/photo-1569173112611-52a7cd38bea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
       "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
-      "followers": [1]
+      "followers": []
     },
     {
       "id": 5,
@@ -43,17 +47,23 @@
       "password": "tracy",
       "profile_pic": "https://i.pinimg.com/564x/1f/83/c5/1f83c5ce9090c12d1969ad7a3745cc82.jpg",
       "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
-      "followers": [1]
+      "followers": [
+        1
+      ]
     }
   ],
   "topics": [
     {
       "id": 1,
-      "title": "Clean architecture",
+      "title": "How to Embed a YouTube Video in Your Website",
       "topic_description": "Clean architecture is a software design philosophy that separates the elements of a design into ring levels. An important goal of clean architecture is to provide developers with a way to organize code in such a way that it encapsulates the business logic but keeps it separate from the delivery mechanism ",
-      "userId": 1,
-      "likes": [],
-      "followers": []
+      "userId": 2,
+      "likes": [
+        1
+      ],
+      "followers": [],
+      "video_description": "In this tutorial, you'll learn how to add a YouTube video into your project.",
+      "video_url": "https://www.youtube.com/embed/ly36kn0ug4k"
     },
     {
       "id": 2,
@@ -61,7 +71,9 @@
       "topic_description": "Flow Control Structures are the fundamental components of computer programs. They are commands that allow a program to “decide” to take one direction or another.There are three basic types of control structures: sequential, selection, and iteration.",
       "userId": 2,
       "likes": [],
-      "followers": []
+      "followers": [
+        1
+      ]
     },
     {
       "id": 3,
@@ -73,11 +85,15 @@
     },
     {
       "id": 4,
-      "title": "Variable declaration",
+      "title": "how I would learn digital marketing",
       "topic_description": "Variables are containers for storing data values, a memory location for a data type. Variables are created using a declaration or keyword that varies across languages.",
-      "userId": 4,
-      "likes": [],
-      "followers": []
+      "userId": 1,
+      "likes": [
+        1
+      ],
+      "followers": [],
+      "video_description": "If I have to learn Digital Marketing from scratch again, I will do if differently to ensure I learn things quicker, have a stronger profile and grow quicker. I would learn things systematically keeping in mind the long term success and avoid shortcuts and avoid the noise in this space about learning",
+      "video_url": "https://www.youtube.com/embed/aUerDG2SNTA"
     },
     {
       "id": 5,
@@ -94,8 +110,12 @@
       "title": "How to Embed a YouTube Video in Your Website",
       "video_description": "In this tutorial, you'll learn how to add a YouTube video into your project.",
       "video_url": "https://www.youtube.com/embed/ly36kn0ug4k",
-      "likes": [],
-      "followers": [],
+      "likes": [
+        1
+      ],
+      "followers": [
+        1
+      ],
       "userId": 2
     },
     {
@@ -134,8 +154,12 @@
       "author": "Robert C. Martin (“Uncle Bob”)",
       "book_description": "Clean architecture is a software design philosophy that separates the elements of a design into ring levels. An important goal of clean architecture is to provide developers with a way to organize code in such a way that it encapsulates the business logic but keeps it separate from the delivery mechanism ",
       "userId": 1,
-      "likes": [],
-      "followers": []
+      "likes": [
+        1
+      ],
+      "followers": [
+        1
+      ]
     },
     {
       "id": 2,
@@ -154,7 +178,9 @@
       "author": "John Ousterhout",
       "book_description": "This book addresses the topic of software design: how to decompose complex software systems into modules (such as classes and methods) that can be implemented relatively independently. The book first introduces the fundamental problem in software design, which is managing complexity. It then discusses philosophical issues about how to approach the software design process, and it presents a collection of design principles to apply during software design.",
       "userId": 2,
-      "likes": [],
+      "likes": [
+        1
+      ],
       "followers": []
     },
     {

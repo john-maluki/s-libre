@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RightMainBar from "../components/RightMainBar";
-import Topics from "../components/topics/Topics";
 import ShareTopicForm from "../components/topics/ShareTopicForm";
 import Search from "../components/Search";
 import ShareButton from "../components/ShareButton";
 import { MAIN_DOMAIN } from "../utils/constants";
+import { TopicsContext } from "../contexts/TopicsContext";
+import { Link, Outlet } from "react-router-dom";
+import { getLinkStyle } from "../utils/functions";
+import { AuthContext } from "../contexts/AuthContext";
 
 const TopicsPage = () => {
   const [showTopicForm, setShowTopicForm] = useState(false);
   const [topics, setTopics] = useState([]);
-  // const [topicComments, setTopicComents] = useState([]);
+  const authUser = useContext(AuthContext);
 
   const showForm = () => {
     setShowTopicForm(!showTopicForm);
   };
-
-  // const fetchTopicsCommentsFromServer = () => {
-  //   fetch(`${MAIN_DOMAIN}/topics_comments`)
-  //     .then((resp) => resp.json())
-  //     .then((topicsComments) => setTopicComents(topicsComments));
-  // };
 
   const fetchTopicsFromServer = () => {
     fetch(`${MAIN_DOMAIN}/topics`)
@@ -34,6 +31,60 @@ const TopicsPage = () => {
   const addTopic = (topic) => {
     setTopics([topic, ...topics]);
   };
+
+  const likeTopic = (topic) => {
+    const hasLiked = checkIfUserLikedTopic(topic);
+    let newData;
+    if (hasLiked) {
+      newData = {
+        ...topic,
+        likes: [...topic.likes.filter((id) => id !== authUser.id)],
+      };
+    } else {
+      newData = { ...topic, likes: [...topic.likes, authUser.id] };
+    }
+    updateTopicOnServer(newData);
+  };
+
+  const followTopic = (topic) => {
+    const hasFollowed = checkIfUserFollowedTopic(topic);
+    let newData;
+    if (hasFollowed) {
+      newData = {
+        ...topic,
+        followers: [...topic.followers.filter((id) => id !== authUser.id)],
+      };
+    } else {
+      newData = { ...topic, followers: [...topic.followers, authUser.id] };
+    }
+    updateTopicOnServer(newData);
+  };
+
+  const checkIfUserLikedTopic = (topic) => {
+    return topic.likes.includes(authUser.id);
+  };
+
+  const checkIfUserFollowedTopic = (topic) => {
+    return topic.followers.includes(authUser.id);
+  };
+
+  const updateTopicOnServer = (topic) => {
+    fetch(`${MAIN_DOMAIN}/topics/${topic.id}`, {
+      method: "PATCH",
+      body: JSON.stringify(topic),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((topic) => updateTopic(topic));
+  };
+
+  const updateTopic = (topic) => {
+    const newTopics = topics.map((t) => (t.id === topic.id ? topic : t));
+    setTopics(newTopics);
+  };
+
   return (
     <>
       <section className="main__content-pane">
@@ -41,13 +92,23 @@ const TopicsPage = () => {
           <div className="container-card__header">
             <h1 className="container-card__page">Topics</h1>
             <div className="container-card__tabs">
-              <h4>Topics</h4>
-              <h4>Following</h4>
+              <h4>
+                <Link to="../topics" style={getLinkStyle()}>
+                  Topics
+                </Link>
+              </h4>
+              <h4>
+                <Link to="followed_topics" style={getLinkStyle()}>
+                  Following
+                </Link>
+              </h4>
             </div>
           </div>
           <div className="container-card__content">
             {/* <!-- Topics list goes here --> */}
-            <Topics topics={topics} />
+            <TopicsContext.Provider value={topics}>
+              <Outlet context={[likeTopic, followTopic]} />
+            </TopicsContext.Provider>
           </div>
         </div>
       </section>

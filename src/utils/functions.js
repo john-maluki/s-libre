@@ -16,9 +16,23 @@ const removeAuthUserFromLocalStorage = () => {
   return localStorage.removeItem(AUTH_USER);
 };
 
+const getLinkStyle = () => {
+  const linkStyle = {
+    textDecoration: "none",
+    color: "black",
+  };
+  return linkStyle;
+};
+
+const findUserWithId = (users, id) => {
+  return users.find((user) => user.id === id);
+};
+
 export {
   removeAuthUserFromUsersList,
   storeAuthUserOnLocalStorage,
   getAuthUserFromLocalStorage,
   removeAuthUserFromLocalStorage,
+  getLinkStyle,
+  findUserWithId,
 };
