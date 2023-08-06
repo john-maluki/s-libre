@@ -8,20 +8,26 @@ import { TopicsContext } from "../contexts/TopicsContext";
 import { Link, Outlet } from "react-router-dom";
 import { getLinkStyle } from "../utils/functions";
 import { AuthContext } from "../contexts/AuthContext";
+import LoaderComponent from "../components/LoaderComponent";
 
 const TopicsPage = () => {
   const [showTopicForm, setShowTopicForm] = useState(false);
   const [topics, setTopics] = useState([]);
   const authUser = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const showForm = () => {
     setShowTopicForm(!showTopicForm);
   };
 
   const fetchTopicsFromServer = () => {
+    setIsLoading(true);
     fetch(`${MAIN_DOMAIN}/topics`)
       .then((resp) => resp.json())
-      .then((topics) => setTopics(topics));
+      .then((topics) => {
+        setIsLoading(false);
+        setTopics(topics);
+      });
   };
 
   useEffect(() => {
@@ -106,9 +112,13 @@ const TopicsPage = () => {
           </div>
           <div className="container-card__content">
             {/* <!-- Topics list goes here --> */}
-            <TopicsContext.Provider value={topics}>
-              <Outlet context={[likeTopic, followTopic]} />
-            </TopicsContext.Provider>
+            {isLoading ? (
+              <LoaderComponent />
+            ) : (
+              <TopicsContext.Provider value={topics}>
+                <Outlet context={[likeTopic, followTopic]} />
+              </TopicsContext.Provider>
+            )}
           </div>
         </div>
       </section>

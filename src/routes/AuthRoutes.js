@@ -3,10 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 
-const AuthRoutes = ({ login }) => {
+const AuthRoutes = ({ login, isLoging }) => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage login={login} />} />
+      <Route
+        path="/"
+        element={<LoginPage login={login} isLoging={isLoging} />}
+      />
       <Route path="/signup" element={<SignupPage />} />
     </Routes>
   );

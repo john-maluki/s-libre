@@ -13,10 +13,13 @@ import FollowedVideos from "../components/videos/FollowedVideos";
 import Books from "../components/books/Books";
 import FollowedBooks from "../components/books/FollowedBooks";
 
-const AppRoutes = ({ setUsers }) => {
+const AppRoutes = ({ setUsers, isLoading }) => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage setUsers={setUsers} />}>
+      <Route
+        path="/"
+        element={<HomePage setUsers={setUsers} isLoading={isLoading} />}
+      >
         <Route index element={<Users />} />
         <Route path="followed_users" element={<FollowedUsers />} />
       </Route>

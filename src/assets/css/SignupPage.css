@@ -1,12 +1,17 @@
+.signup-body {
+  width: 100%;
+  height: max-content;
+}
+
 .signup-page {
-  min-height: 100vh;
-  min-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .signup-card {
+  margin: 20px;
   padding: 2rem;
   border: 2px solid black;
   min-width: 30rem;
@@ -15,34 +20,35 @@
 .signup-text {
   text-align: center;
 }
-small {
+.signup-form small {
   color: red;
   font-weight: 600;
 }
-input {
+.signup-form input {
   border: none;
   border-bottom: 1px solid black;
 }
-textarea,
+.signup-form textarea,
 /* input, */
 .signup-card {
   border-radius: 0.5rem;
 }
-textarea,
-input {
+.signup-form textarea,
+.signup-form input {
   padding: 0.5rem;
   font-family: inherit;
   font-size: 1rem;
   width: 100%;
 }
 
-label,
-input,
-textarea,
+.signup-form label,
+.signup-form input,
+.signup-form textarea,
 .or-link {
   font-weight: 600;
 }
-form {
+
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -55,7 +61,7 @@ form {
   gap: 1rem;
 }
 
-input[type="submit"] {
+.signup-form input[type="submit"] {
   cursor: pointer;
   padding: 0.8rem 1rem;
   border: 2px solid black;
@@ -63,7 +69,7 @@ input[type="submit"] {
   transition: all 0.5s ease-in-out;
 }
 
-input[type="submit"]:hover {
+.signup-form input[type="submit"]:hover {
   background-color: black;
   color: white;
 }
