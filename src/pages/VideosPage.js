@@ -8,20 +8,26 @@ import { VideosContext } from "../contexts/VideosContext";
 import { Link, Outlet } from "react-router-dom";
 import { getLinkStyle } from "../utils/functions";
 import { AuthContext } from "../contexts/AuthContext";
+import LoaderComponent from "../components/LoaderComponent";
 
 const VideosPage = () => {
   const [showVideoForm, setShowVideoForm] = useState(false);
   const [videos, setVideos] = useState([]);
   const authUser = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const showForm = () => {
     setShowVideoForm(!showVideoForm);
   };
 
   const fetchVideosFromServer = () => {
+    setIsLoading(true);
     fetch(`${MAIN_DOMAIN}/videos`)
       .then((resp) => resp.json())
-      .then((videos) => setVideos(videos));
+      .then((videos) => {
+        setIsLoading(false);
+        setVideos(videos);
+      });
   };
 
   const likeVideo = (video) => {
@@ -106,9 +112,13 @@ const VideosPage = () => {
           </div>
           <div id="container-card__content" className="container-card__content">
             {/* <!-- Videos list goes here --> */}
-            <VideosContext.Provider value={videos}>
-              <Outlet context={[likeVideo, followVideo]} />
-            </VideosContext.Provider>
+            {isLoading ? (
+              <LoaderComponent />
+            ) : (
+              <VideosContext.Provider value={videos}>
+                <Outlet context={[likeVideo, followVideo]} />
+              </VideosContext.Provider>
+            )}
           </div>
         </div>
       </section>

@@ -1,15 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LoaderComponent from "../components/LoaderComponent";
 
-const LoginPage = ({ login }) => {
+const LoginPage = ({ login, isLoging }) => {
   const [userCredetials, setUserCredetials] = useState({
+    username: "",
+    password: "",
+  });
+  const [userCredetialsError, setUserCredetialsError] = useState({
     username: "",
     password: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(userCredetials);
+    validateLoginForm();
+    if (loginFormIsValid()) {
+      login(userCredetials);
+    }
+  };
+
+  const loginFormIsValid = () => {
+    return !(
+      Boolean(userCredetialsError.username) ||
+      Boolean(userCredetialsError.password)
+    );
+  };
+
+  const validateLoginForm = () => {
+    if (userCredetials.username.trim() === "") {
+      setUserCredetialsError((userCredetialsError) => ({
+        ...userCredetialsError,
+        username: "Username required!",
+      }));
+    } else if (userCredetials.password.trim() === "") {
+      setUserCredetialsError((userCredetialsError) => ({
+        ...userCredetialsError,
+        password: "Password required!",
+      }));
+    }
   };
 
   const handleOnChange = (e) => {
@@ -17,6 +46,10 @@ const LoginPage = ({ login }) => {
     setUserCredetials((userCredetials) => ({
       ...userCredetials,
       [name]: value,
+    }));
+    setUserCredetialsError((userCredetialsError) => ({
+      ...userCredetialsError,
+      [name]: "",
     }));
   };
 
@@ -35,10 +68,13 @@ const LoginPage = ({ login }) => {
                 type="text"
                 name="username"
                 id="username"
-                placeholder="Type your username"
+                placeholder="Type your email"
                 onChange={handleOnChange}
               />
             </div>
+            {userCredetialsError.username ? (
+              <p className="error">{userCredetialsError.username}</p>
+            ) : null}
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
@@ -52,13 +88,20 @@ const LoginPage = ({ login }) => {
                 onChange={handleOnChange}
               />
             </div>
+            {userCredetialsError.password ? (
+              <p className="error">{userCredetialsError.password}</p>
+            ) : null}
           </div>
           <div className="form-group">
-            <input type="submit" value="LOGIN" />
+            {isLoging ? (
+              <LoaderComponent height={30} />
+            ) : (
+              <input type="submit" value="LOGIN" />
+            )}
           </div>
         </form>
         <div className="or-link">
-          <Link to="/signup">Signup</Link>
+          You don't have an account <Link to="/signup">Signup</Link>
         </div>
       </div>
     </div>

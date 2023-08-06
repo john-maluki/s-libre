@@ -8,20 +8,26 @@ import { Link, Outlet } from "react-router-dom";
 import { BooksContext } from "../contexts/BooksContext";
 import { getLinkStyle } from "../utils/functions";
 import { AuthContext } from "../contexts/AuthContext";
+import LoaderComponent from "../components/LoaderComponent";
 
 const BooksPage = () => {
   const [showBookForm, setShowBookForm] = useState(false);
   const [books, setBooks] = useState([]);
   const authUser = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const showForm = () => {
     setShowBookForm(!showBookForm);
   };
 
   const fetchBooks = () => {
+    setIsLoading(true);
     fetch(`${MAIN_DOMAIN}/books`)
       .then((response) => response.json())
-      .then((books) => setBooks(books));
+      .then((books) => {
+        setIsLoading(false);
+        setBooks(books);
+      });
   };
 
   const likeBook = (book) => {
@@ -106,9 +112,13 @@ const BooksPage = () => {
           </div>
           <div className="container-card__content">
             {/* <!-- Books list goes here --> */}
-            <BooksContext.Provider value={books}>
-              <Outlet context={[likeBook, followBook]} />
-            </BooksContext.Provider>
+            {isLoading ? (
+              <LoaderComponent />
+            ) : (
+              <BooksContext.Provider value={books}>
+                <Outlet context={[likeBook, followBook]} />
+              </BooksContext.Provider>
+            )}
           </div>
         </div>
       </section>

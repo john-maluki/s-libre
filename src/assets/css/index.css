@@ -388,6 +388,8 @@ button {
     cursor: pointer;
     opacity: 0.8;
     transition: all 0.3 linear;
+    padding: 10px;
+    border-radius: 5px;
   }
 
   .modal__input[type="submit"]:hover {
@@ -399,13 +401,69 @@ button {
 /* Login page */
 .login-page {
   width: 100%;
-  height: auto;
 }
 
 .login-card {
-  width: 30%;
-  height: 300px;
-  margin: 200px auto;
-  background-color: #f9f9f9;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  width: 300px;
+  height: max-content;
+  margin: 100px auto;
+  padding: 20px;
+  border: 0.5px solid rgb(233, 211, 211);
+  border-radius: 10px;
+  /* background-color: linen; */
+}
+
+.login-text {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.login-form .form-group input[type="text"],
+.login-form .form-group input[type="password"] {
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  outline: none;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.login-form .form-group input[type="submit"] {
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #0f1419;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-family: 600;
+  opacity: 0.8;
+  transition: all 0.2s linear;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.login-form .form-group input[type="submit"]:hover {
+  opacity: 1;
+}
+
+.form-group .error {
+  margin: 10px;
+  font-size: 15px;
+  color: red;
+}
+
+.or-link {
+  font-family: roboto;
+  font-size: 15px;
+}
+
+/* Loading indicator */
+.loader-indicator {
+  width: 80px;
+  margin: 10% auto;
 }

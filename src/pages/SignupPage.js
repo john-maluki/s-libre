@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MAIN_DOMAIN } from "../utils/constants";
-import "./SignupPage.css";
+import "../assets/css/SignupPage.css";
 
 const SignupPage = () => {
   const initialData = {

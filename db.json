@@ -47,9 +47,7 @@
       "password": "tracy",
       "profile_pic": "https://i.pinimg.com/564x/1f/83/c5/1f83c5ce9090c12d1969ad7a3745cc82.jpg",
       "pitch": "Lorem ipsum dolor sit amet consectetur adipisicing elit. vero? Eos, facere voluptas.",
-      "followers": [
-        1
-      ]
+      "followers": []
     },
     {
       "name": "new",
@@ -112,9 +110,7 @@
       "title": "How to Embed a YouTube Video in Your Website",
       "topic_description": "Clean architecture is a software design philosophy that separates the elements of a design into ring levels. An important goal of clean architecture is to provide developers with a way to organize code in such a way that it encapsulates the business logic but keeps it separate from the delivery mechanism ",
       "userId": 2,
-      "likes": [
-        1
-      ],
+      "likes": [],
       "followers": [],
       "video_description": "In this tutorial, you'll learn how to add a YouTube video into your project.",
       "video_url": "https://www.youtube.com/embed/ly36kn0ug4k"
@@ -125,9 +121,7 @@
       "topic_description": "Flow Control Structures are the fundamental components of computer programs. They are commands that allow a program to “decide” to take one direction or another.There are three basic types of control structures: sequential, selection, and iteration.",
       "userId": 2,
       "likes": [],
-      "followers": [
-        1
-      ]
+      "followers": []
     },
     {
       "id": 3,

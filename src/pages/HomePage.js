@@ -5,8 +5,9 @@ import { AuthContext } from "../contexts/AuthContext";
 import { MAIN_DOMAIN } from "../utils/constants";
 import Search from "../components/Search";
 import { UsersContext } from "../contexts/UserContext";
+import LoaderComponent from "../components/LoaderComponent";
 
-const HomePage = ({ setUsers }) => {
+const HomePage = ({ setUsers, isLoading }) => {
   const authUser = useContext(AuthContext);
   const users = useContext(UsersContext);
 
@@ -72,8 +73,7 @@ const HomePage = ({ setUsers }) => {
           </div>
           <div className="container-card__content">
             {/* <!-- Users list goes here --> */}
-
-            <Outlet context={followUser} />
+            {isLoading ? <LoaderComponent /> : <Outlet context={followUser} />}
           </div>
         </div>
       </section>
